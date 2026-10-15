@@ -32,8 +32,6 @@ For lookalike-letter links it offers to open the real site instead.
 
 Requires Android 8.0 or newer.
 
-> Upgrading from 1.0: version 1.0 was signed with a temporary key, so uninstall it before installing 1.1 or later. This wipes your link history. Later updates install normally.
-
 ## Build
 
 Needs the Android SDK and JDK 17 or newer (Android Studio includes both).
