@@ -1,0 +1,11 @@
+<resources>
+    <!-- DynamicColors: wallpaper-based Material You palette on Android 12+, baseline M3 colors below that. -->
+    <style name="Theme.LinkGuard" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar" />
+
+    <style name="Theme.LinkGuard.Translucent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>
