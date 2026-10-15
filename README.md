@@ -26,7 +26,7 @@ For lookalike-letter links it offers to open the real site instead.
 
 ## Install
 
-1. Download the latest APK from [Releases](https://github.com/destinys-fool/linkguard/releases/latest) on your phone and open it. Allow installs from unknown sources if asked.
+1. Download the latest APK from [Releases](https://github.com/AugerFlare/linkguard/releases/latest) on your phone and open it. Allow installs from unknown sources if asked.
 2. Open LinkGuard and tap **Set as default browser**.
 3. Pick which browser checked links should open in.
 

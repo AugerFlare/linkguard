@@ -45,7 +45,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private static final Uri PROBE = Uri.parse("https://example.com");
-    private static final Uri RELEASES = Uri.parse("https://github.com/destinys-fool/linkguard/releases/latest");
+    private static final Uri RELEASES = Uri.parse("https://github.com/AugerFlare/linkguard/releases/latest");
     private RadioGroup browsers;
 
     @Override
