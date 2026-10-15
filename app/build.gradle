@@ -2,6 +2,11 @@ plugins {
     id 'com.android.application'
 }
 
+// Release signing secrets live outside git, in keystore.properties at the project root.
+def ks = new Properties()
+def ksFile = rootProject.file('keystore.properties')
+if (ksFile.exists()) ksFile.withInputStream { ks.load(it) }
+
 android {
     namespace 'com.linkguard'
     compileSdk 36
@@ -10,8 +15,26 @@ android {
         applicationId 'com.linkguard'
         minSdk 26
         targetSdk 36
-        versionCode 1
-        versionName '1.0'
+        versionCode 2
+        versionName '1.1'
+    }
+
+    signingConfigs {
+        release {
+            storeFile ks.storeFile ? file(ks.storeFile) : null
+            storePassword ks.storePassword
+            keyAlias ks.keyAlias
+            keyPassword ks.keyPassword
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
     }
 
     compileOptions {

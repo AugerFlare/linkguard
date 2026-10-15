@@ -22,6 +22,7 @@ For lookalike-letter links it offers to open the real site instead.
 - Link history (kept 1, 7 or 30 days, or forever), stored only on your phone
 - An optional status notification with a Pause/Resume button
 - "Share" a link to LinkGuard from apps that open links internally
+- A "Check for updates" button that opens this page's latest release (LinkGuard never goes online itself)
 
 ## Install
 
@@ -30,6 +31,8 @@ For lookalike-letter links it offers to open the real site instead.
 3. Pick which browser checked links should open in.
 
 Requires Android 8.0 or newer.
+
+> Upgrading from 1.0: version 1.0 was signed with a temporary key, so uninstall it before installing 1.1 or later. This wipes your link history. Later updates install normally.
 
 ## Build
 
@@ -41,12 +44,22 @@ gradlew assembleDebug testDebugUnitTest
 
 On Windows, `build.bat` does the same using Android Studio's bundled JDK and writes the output to `build.log`. The APK lands in `app/build/outputs/apk/debug/`.
 
+For a signed release build, create a keystore and a `keystore.properties` file in the project root (it's git-ignored):
+
+```
+storeFile=C:/path/to/linkguard-release.jks
+keyAlias=linkguard
+storePassword=...
+keyPassword=...
+```
+
+then run `gradlew assembleRelease`. The APK lands in `app/build/outputs/apk/release/`.
+
 ## Limitations
 
 - Shortened links (bit.ly, t.co, ...) are flagged, but their real destination can't be revealed without going online.
 - Detection is heuristic. It catches common tricks, not every phishing site, and may occasionally flag a legitimate one.
 - Domain parsing handles `name.com` and `name.co.uk` style addresses, not every country's rules.
-- Release APKs are currently signed with a debug key.
 
 ## How it works
 

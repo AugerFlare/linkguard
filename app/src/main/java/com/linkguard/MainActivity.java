@@ -45,6 +45,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private static final Uri PROBE = Uri.parse("https://example.com");
+    private static final Uri RELEASES = Uri.parse("https://github.com/destinys-fool/linkguard/releases/latest");
     private RadioGroup browsers;
 
     @Override
@@ -68,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 0);
             StatusNotification.setShown(this, checked);
         });
+
+        // No INTERNET permission, so no automatic check: show our version and open the releases page to compare.
+        MaterialButton updates = findViewById(R.id.updates);
+        try {
+            updates.setText("Version " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName
+                    + " · Check for updates");
+        } catch (PackageManager.NameNotFoundException e) {
+            updates.setText("Check for updates");
+        }
+        updates.setOnClickListener(x -> startActivity(new Intent(Intent.ACTION_VIEW, RELEASES)));
 
         TextInputEditText input = findViewById(R.id.input);
         View.OnClickListener check = x -> {

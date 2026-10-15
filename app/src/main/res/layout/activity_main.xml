@@ -158,6 +158,14 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="8dp"
                 android:text="Check" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updates"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp" />
         </LinearLayout>
     </ScrollView>
 

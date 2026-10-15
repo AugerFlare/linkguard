@@ -4,3 +4,5 @@ build/
 *.iml
 local.properties
 build.log
+keystore.properties
+*.jks
